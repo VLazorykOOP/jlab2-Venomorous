@@ -1,11 +1,22 @@
+import java.util.Scanner;
+
 public class Rational {
     private int numerator;
     private int denominator;
 
+    Scanner scan = new Scanner(System.in);
+
+
+
     public Rational(int numerator, int denominator) {
         this.numerator = numerator;
-        this.denominator = denominator;
-        reduce();
+        if(denominator > 0){
+            this.denominator = denominator;
+        }
+        else{
+            System.out.println("Denominator is less or equal 0");
+        }
+//        reduce();
     }
 
     public Rational add(Rational other) {
@@ -75,6 +86,7 @@ public static void main(String[] args){
         Rational fraction1 = new Rational(1, 3);
         Rational fraction2 = new Rational (3, 5);
         Rational fraction3 = new Rational(12,16);
+        Rational fraction4 = new Rational(12,0);
 
         if(fraction1.equals(fraction2)){
             System.out.println("Fraction 1 equals fraction 2");
@@ -107,5 +119,7 @@ public static void main(String[] args){
 
         Rational Div = fraction2.divide(fraction3);
         System.out.println(fraction2.numerator + "/" + fraction2.denominator + " : " + fraction3.numerator + "/" + fraction3.denominator + " = " + Div.numerator + "/" + Div.denominator);
-}
+
+    System.out.println("Fraction 4: " + fraction4.denominator);
+    }
 }
