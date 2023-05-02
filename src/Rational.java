@@ -67,7 +67,11 @@ public class Rational {
 
     public void print(){
         if(this.numerator != 0) {
-            System.out.print(numerator + "/" + denominator);
+            if(denominator==1) {
+                System.out.println(numerator);
+            }else {
+                System.out.print(numerator + "/" + denominator);
+            }
         }else{
             System.out.println("0");
         }
@@ -80,6 +84,7 @@ public class Rational {
         fraction2.print();
         System.out.print(" = ");
         Rational result = fraction1.add(fraction2);
+        result.reduce();
         result.print();
         System.out.println();
     }
@@ -90,6 +95,7 @@ public class Rational {
         fraction2.print();
         System.out.print(" = ");
         Rational result = fraction1.subtract(fraction2);
+        result.reduce();
         result.print();
         System.out.println();
     }
@@ -100,6 +106,7 @@ public class Rational {
         fraction2.print();
         System.out.print(" = ");
         Rational result = fraction1.multiply(fraction2);
+        result.reduce();
         result.print();
         System.out.println();
     }
@@ -110,6 +117,7 @@ public class Rational {
         fraction2.print();
         System.out.print(" = ");
         Rational result = fraction1.divide(fraction2);
+        result.reduce();
         result.print();
         System.out.println();
     }
